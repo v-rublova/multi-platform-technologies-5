@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="adapter_">
+  <ClassDiagramComponents>
+    <Class name="Adapter" package="adapter_" visibility="public" xPosition="853.0" yPosition="381.0">
+      <Fields>
+        <Field name="boat" type="WaterVehicle" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Boat" name="b"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="GroudMove" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Auto" package="adapter_" visibility="public" xPosition="517.0" yPosition="642.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="GroudMove" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Boat" package="adapter_" visibility="public" xPosition="517.0" yPosition="179.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="WaterMove" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Wanderer" package="adapter_" visibility="public" xPosition="1108.0" yPosition="637.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="Wander" returnType="void" visibility="public">
+          <Argument type="GroundVehicle" name="auto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="GroundVehicle" package="adapter_" visibility="public" xPosition="853.0" yPosition="648.0">
+      <Methods>
+        <Method name="GroudMove" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="WaterVehicle" package="adapter_" visibility="public" xPosition="853.0" yPosition="179.0">
+      <Methods>
+        <Method name="WaterMove" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="adapter_.Boat" target="adapter_.WaterVehicle"/>
+    <HasRelation name="boat" source="adapter_.Adapter" target="adapter_.WaterVehicle" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="adapter_.Auto" target="adapter_.GroundVehicle"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="adapter_.Adapter" target="adapter_.GroundVehicle"/>
+    <UseRelation source="adapter_.Wanderer" target="adapter_.GroundVehicle" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

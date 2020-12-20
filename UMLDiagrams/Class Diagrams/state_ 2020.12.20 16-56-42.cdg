@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="state_">
+  <ClassDiagramComponents>
+    <Class name="IssuedState" package="state_" visibility="public" xPosition="690.0" yPosition="351.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Paper" name="paper"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Fail" returnType="String" visibility="public"/>
+        <Method name="Success" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="NotReadyState" package="state_" visibility="public" xPosition="674.0" yPosition="160.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Paper" name="paper"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Fail" returnType="String" visibility="public"/>
+        <Method name="Success" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Paper" package="state_" visibility="public" xPosition="1026.0" yPosition="613.0">
+      <Fields>
+        <Field name="state" type="State" visibility="private"/>
+        <Field name="done" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="changeState" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="getState" returnType="State" visibility="public"/>
+        <Method name="SetDone" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ReadyState" package="state_" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Paper" name="paper"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Fail" returnType="String" visibility="public"/>
+        <Method name="Success" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ResubState" package="state_" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Paper" name="paper"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Fail" returnType="String" visibility="public"/>
+        <Method name="Success" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="State" package="state_" visibility="public" isAbstract="true" xPosition="1044.0" yPosition="286.0">
+      <Fields>
+        <Field name="paper" type="Paper" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Paper" name="paper"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Fail" returnType="String" visibility="public" isAbstract="true"/>
+        <Method name="Success" returnType="String" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="SubmittedState" package="state_" visibility="public" xPosition="1408.0" yPosition="129.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Paper" name="paper"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Fail" returnType="String" visibility="public"/>
+        <Method name="Success" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="VerifiedState" package="state_" visibility="public" xPosition="1423.0" yPosition="304.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Paper" name="paper"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="Fail" returnType="String" visibility="public"/>
+        <Method name="Success" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="state_.Paper" target="state_.State" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="state_.IssuedState" target="state_.State"/>
+    <IsRelation name="is" source="state_.SubmittedState" target="state_.State"/>
+    <IsRelation name="is" source="state_.VerifiedState" target="state_.State"/>
+    <IsRelation name="is" source="state_.ResubState" target="state_.State"/>
+    <HasRelation name="state" source="state_.Paper" target="state_.State" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="state_.ReadyState" target="state_.State"/>
+    <HasRelation name="paper" source="state_.State" target="state_.Paper" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="state_.NotReadyState" target="state_.State"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

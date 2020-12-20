@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="factory_">
+  <ClassDiagramComponents>
+    <Class name="GameLaptop" package="factory_" visibility="public" xPosition="419.0" yPosition="252.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="Paint" returnType="void" visibility="public"/>
+        <Method name="Hardware" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GameLaptopFactory" package="factory_" visibility="public" xPosition="547.0" yPosition="460.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createLaptop" returnType="Laptop" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LaptopFactory" package="factory_" visibility="public" isAbstract="true" xPosition="725.0" yPosition="599.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ManufactureLaptop" returnType="void" visibility="public"/>
+        <Method name="createLaptop" returnType="Laptop" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="OfficeLaptop" package="factory_" visibility="public" xPosition="1028.0" yPosition="252.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="Paint" returnType="void" visibility="public"/>
+        <Method name="Hardware" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="OfficeLaptopFactory" package="factory_" visibility="public" xPosition="984.0" yPosition="483.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createLaptop" returnType="Laptop" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Laptop" package="factory_" visibility="public" xPosition="725.0" yPosition="267.0">
+      <Methods>
+        <Method name="Paint" returnType="void" visibility="package"/>
+        <Method name="Hardware" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="factory_.OfficeLaptopFactory" target="factory_.LaptopFactory"/>
+    <UseRelation source="factory_.OfficeLaptopFactory" target="factory_.Laptop" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="factory_.GameLaptop" target="factory_.Laptop"/>
+    <UseRelation source="factory_.GameLaptopFactory" target="factory_.Laptop" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="factory_.OfficeLaptop" target="factory_.Laptop"/>
+    <IsRelation name="is" source="factory_.GameLaptopFactory" target="factory_.LaptopFactory"/>
+    <UseRelation source="factory_.LaptopFactory" target="factory_.Laptop" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
